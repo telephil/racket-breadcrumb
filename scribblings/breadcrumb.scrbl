@@ -13,8 +13,6 @@ of their location.
 
 Sample usage:
 
-@image{breadcrumb.png}
-
 @codeblock{
 #lang racket/gui
 
