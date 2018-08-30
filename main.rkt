@@ -1,10 +1,21 @@
 #lang racket/gui
 
-(provide breadcrumb%)
+(provide breadcrumb%
+         breadcrumb-separator-slash
+         breadcrumb-separator-arrow
+         breadcrumb-separator-quote
+         breadcrumb-separator-double-quote)
+
+(define breadcrumb-separator-slash "/")
+(define breadcrumb-separator-arrow "▶")
+(define breadcrumb-separator-quote "❯")
+(define breadcrumb-separator-double-quote "»")
 
 (define breadcrumb%
   (class editor-canvas%
-    (init-field callback)
+    (init-field
+     [callback values]
+     [separator breadcrumb-separator-quote])
 
     (define editor (new text%))
     
@@ -16,7 +27,7 @@
             (λ (t s e) (callback path))))
     
     (define/private (insert-path-separator)
-      (send editor insert " ❯ ")) ;; ▶
+      (send editor insert (~a " " separator " ")))
     
     ;; Public methods
     (define/public (set-path! path)
