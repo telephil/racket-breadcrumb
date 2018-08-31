@@ -47,7 +47,7 @@ The argument to the @racket[callback] is a list of elements up to the clicked on
 
 The @racket[separator] is used to separate the path elements in the control.}
 
-@defmethod[(set-path! [path list?]) void?]{
+@defmethod[(set-path [path list?]) void?]{
 Sets the path to be displayed by the control}
 
 }
