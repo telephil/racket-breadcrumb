@@ -30,7 +30,7 @@
       (send editor insert (~a " " separator " ")))
     
     ;; Public methods
-    (define/public (set-path path)
+    (define/public (set-path! path)
       (send editor erase)
       (for ([elt path]
             [count (in-naturals 1)])
